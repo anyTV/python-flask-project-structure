@@ -1,0 +1,14 @@
+*.pyc
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+dist
+bin
+venv
+
+trash
+sblm.sublime-workspace
