@@ -1,10 +1,9 @@
 
 # Mongo db config
-MONGO_URI       = '127.0.0.1'
-MONGO_HOST      = 'localhost'
-MONGO_PORT      = '27017'
-MONGO_CONNECT_TIMEOUT_MS    = 10000
-
+MONGO_URI = '127.0.0.1'
+MONGO_HOST = 'localhost'
+MONGO_PORT = '27017'
+MONGO_CONNECT_TIMEOUT_MS = 10000
 
 
 # MySQL Config
@@ -12,9 +11,9 @@ MONGO_CONNECT_TIMEOUT_MS    = 10000
 # the db driver will read and parse it as needed
 
 MYSQL_CONNECTION = {
-    'host'        : 'localhost',
-    'db'          : 'test_app',
-    'user'        : 'root',
-    'password'    : '',
-    'port'        : 3306
+    'host': 'localhost',
+    'db': 'test_app',
+    'user': 'root',
+    'password': '',
+    'port': 3306
 }

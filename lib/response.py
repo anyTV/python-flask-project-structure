@@ -7,10 +7,8 @@ class Response():
     def __init__(self):
         self.headers = {}
 
-
     def set_header(self, key, value):
         self.headers[key] = value
-
 
     def send(self, data):
         response = make_response(json.dumps(data))
@@ -25,7 +23,6 @@ class Response():
 
         return response
 
-
     def redirect(self, url, data=None):
         if data:
             response = make_response(redirect(url, data))
@@ -36,4 +33,3 @@ class Response():
             response.headers.add(key, self.headers[key])
 
         return response
-

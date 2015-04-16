@@ -1,9 +1,19 @@
-import datetime, hashlib, io, json, math, random, time, urllib, uuid
+import datetime
+import hashlib
+import io
+import json
+import math
+import random
+import time
+import urllib
+import uuid
 
 SALT = '5a52bf3ae03b415cbb1ff6df1265b019'
 
+
 def hash(string):
     return hashlib.sha1(str(string)).hexdigest()
+
 
 def get_data(reqd, optional, body):
     i = len(reqd)
@@ -28,6 +38,7 @@ def get_data(reqd, optional, body):
 
     return ret
 
+
 def random_string(i):
     possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
     string = ''
@@ -40,8 +51,10 @@ def random_string(i):
 
     return string
 
+
 def generate_UUID():
     return uuid.uuid4()
+
 
 def unique_short_string(n):
     result = ''
@@ -53,19 +66,24 @@ def unique_short_string(n):
 
     return result.replace('.', '')[0:n]
 
+
 def pad(num, size):
     return ('000000000' + str(num))[-(size or 2):]
+
 
 def to_title_case(string):
     if string:
         return ' '.join(string.split()).title()
     return False
 
+
 def caps_first(string):
     return string[0].upper() + string[1:]
 
+
 def clean_string(string):
     return ' '.join(string.split())
+
 
 def split(a, n):
     length = len(a)
@@ -79,6 +97,7 @@ def split(a, n):
         n -= 1
 
     return out
+
 
 def slice(a, n):
     length = len(a)
@@ -94,6 +113,7 @@ def slice(a, n):
 
     return out
 
+
 def extend(obj, source):
     for prop in source:
         if hasattr(source, prop):
@@ -101,20 +121,24 @@ def extend(obj, source):
 
     return obj
 
+
 def clone(obj):
     return json.loads(json.dumps(obj))
+
 
 def encode_params(params):
     params_encoded = []
 
     for key in params.keys():
         params_encoded.append(urllib.quote(key, safe='~()*!.\'')
-            + '=' + urllib.quote(params.get(key), safe='~()*!.\''))
+                              + '=' + urllib.quote(params.get(key), safe='~()*!.\''))
 
     return '&'.join(params_encoded)
 
+
 def nida():
     return hash(SALT + hash(datetime.datetime.now()))
+
 
 def mida(access_token):
     return hash(SALT + hash(access_token))

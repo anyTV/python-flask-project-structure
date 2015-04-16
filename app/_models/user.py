@@ -8,6 +8,4 @@ class User(BaseModel):
         self = BaseModel('users')
 
 
-
 user = User()
-

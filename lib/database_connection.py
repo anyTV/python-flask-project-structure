@@ -39,4 +39,3 @@ def shutdown_session(exception=None):
 
 def get_database():
     return db
-
