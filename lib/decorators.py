@@ -5,18 +5,19 @@ from flask import redirect, request
 from util import utils
 
 # Import core libraries
+from lib.error_handler import FailedRequest
 from lib.response import Response
 
 # Other imports
 from functools import wraps
 
 
-def sample_decorator(func):
+def make_response(func):
 
     @wraps(func)
-    def wrapper(*args, **kw):
-        data = 'do additional processing before going to routes'
+    def wrapper(*args, **kwargs):
+        response = Response()
 
-        return func(data=data, *args, **kw)
+        return func(res=response, *args, **kwargs)
 
     return wrapper

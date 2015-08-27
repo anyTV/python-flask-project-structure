@@ -6,6 +6,9 @@
 *.pid
 *.gz
 
+*.egg-info
+build
+
 dist
 bin
 venv

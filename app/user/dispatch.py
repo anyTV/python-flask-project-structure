@@ -18,12 +18,11 @@ mod_user = Blueprint('user', __name__)
 # Declare all the routes
 
 @mod_user.route('/', methods=['GET'])
-@sample_decorator
-def get_user(data):
+@make_response
+def get_user(res):
 
     params = {
-        'user_id': request.user_id,
-        'return_from_decorator': data
+        'user_id': request.user_id
     }
 
     return res.send(user.get_user(params)[0])

@@ -22,5 +22,8 @@ CSRF_SESSION_KEY = "code"
 # Secret key for signing cookies
 SECRET_KEY = "code"
 
+ALLOWED_HEADERS = ['Access-Token, X-Requested-With, Content-Type, Accept']
+ALLOWED_ORIGINS = '*'
+ALLOWED_METHODS = ['GET', 'HEAD', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE']
 
 print " * Loading config for " + APP_NAME
