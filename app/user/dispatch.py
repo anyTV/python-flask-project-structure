@@ -8,7 +8,7 @@ from flask import Blueprint
 from app import user
 
 # Import core libraries
-from lib.decorators import sample_decorator
+from lib.decorators import make_response
 
 
 # Define the blueprint: 'user', set its url prefix: app.url/user

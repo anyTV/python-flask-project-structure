@@ -7,7 +7,7 @@ DEBUG = True
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # App name
-APP_NAME = "App Name"
+APP_NAME = "Python Flask Boilerplate"
 
 # Threads per core
 THREADS_PER_PAGE = 2
@@ -26,4 +26,4 @@ ALLOWED_HEADERS = ['Access-Token, X-Requested-With, Content-Type, Accept']
 ALLOWED_ORIGINS = '*'
 ALLOWED_METHODS = ['GET', 'HEAD', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE']
 
-print " * Loading config for " + APP_NAME
+print(" * Loading config for " + APP_NAME)
