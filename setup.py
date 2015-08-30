@@ -13,10 +13,11 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'Flask>=0.10.1',
-        'flask-cors>=1.10.3',
-        'requests>=2.5.3',
-        'sqlalchemy>=0.9.9',
-        'mysql-python>=1.2.5'
+        'Flask',
+        'boto3'
+        'flask-cors',
+        'requests',
+        'sqlalchemy',
+        'pymysql'
     ]
 )

@@ -5,7 +5,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 
 
 def sql_alchemy_format(_config):
-    return 'mysql://' + _config['user'] + ':' + _config['password'] + '@' + \
+    return 'mysql+pymysql://' + _config['user'] + ':' + _config['password'] + '@' + \
         _config['host'] + ':' + str(_config['port']) + '/' + _config['db']
 
 
@@ -40,6 +40,9 @@ def query(_connection, _query, _params):
     res = {}
     data = _connection.execute(text(_query), _params)
     _connection.commit()
+
+    if data.rowcount == 0:
+        return None
 
     res['rows_affected'] = data.rowcount
     _connection.close()
