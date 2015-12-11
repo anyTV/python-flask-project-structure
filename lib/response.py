@@ -13,10 +13,12 @@ class Response:
     def set_header(self, key, value):
         self.headers[key] = value
 
-    def download(self, data):
-        response = resp(data)
+    def send(self, data):
+        response = make_response(jsonify({'data': data}))
 
-        response.mimetype = 'application/octet-stream'
+        # set this later in config
+        response.mimetype = 'application/json'
+
         response.status = '200'
 
         for key in self.headers:
@@ -24,12 +26,10 @@ class Response:
 
         return response
 
-    def send(self, data):
-        response = make_response(jsonify({'data': data}))
+    def stream(self, data, mimetype='application/octet-stream'):
+        response = resp(data)
 
-        # set this later in config
-        response.mimetype = 'application/json'
-
+        response.mimetype = mimetype
         response.status = '200'
 
         for key in self.headers:

@@ -13,11 +13,13 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'Flask',
-        'boto3'
-        'flask-cors',
-        'requests',
+        'mutagen',
         'sqlalchemy',
-        'pymysql'
+        'pymysql',
+        'requests',
+        'uwsgi',
+        'flask-cors',
+        'Flask-Mail',
+        'Flask'
     ]
 )

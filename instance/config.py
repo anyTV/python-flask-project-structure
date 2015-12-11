@@ -26,4 +26,16 @@ ALLOWED_HEADERS = ['Access-Token, X-Requested-With, Content-Type, Accept']
 ALLOWED_ORIGINS = '*'
 ALLOWED_METHODS = ['GET', 'HEAD', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE']
 
+# Environment - dev, stage, prod
+APP_ENV = 'dev'
+
+# Default values
+PAGE_LIMIT = 20
+
+# Error messages
+ERROR = {
+    'no_results': 'No results found',
+    'permission': 'You do not have permission to do this action'
+}
+
 print(" * Loading config for " + APP_NAME)

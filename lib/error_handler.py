@@ -17,6 +17,7 @@ class FailedRequest(Exception):
 
     def to_dict(self):
         rv = {}
+        rv['code'] = self.status_code
         rv['message'] = self.message
         rv['data'] = dict(self.payload or ())
         return rv
@@ -45,4 +46,4 @@ def exception_encountered(error):
 
 @mod_err.app_errorhandler(Exception)
 def exception_encountered(error):
-    return make_response(jsonify({'error': error.message}), 500)
+    return make_response(jsonify({'error': str(error)}), 500)
