@@ -3,7 +3,7 @@ Python Flask Project Structure
 
 Introduction
 -----
-A boilerplate for REST APIs implement using python flask and pymysql. This project uses python3 and follows the (company's Python conventions)(https://github.com/anyTV/Python-conventions).
+A boilerplate for REST APIs implement using python flask and pymysql. This project uses python3 and follows the [company's Python conventions](https://github.com/anyTV/Python-conventions).
 
 ## Running the application
 
