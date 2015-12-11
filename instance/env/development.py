@@ -17,8 +17,3 @@ APP_DB = {
     'password': '',
     'port': 3306
 }
-
-EMAIL = {
-    'username': 'user@domain.com',
-    'password': 'pass'
-}
