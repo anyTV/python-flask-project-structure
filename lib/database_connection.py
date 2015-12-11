@@ -23,4 +23,4 @@ db = Database()
 
 
 def add_databases(_config):
-    db.app_db = db.add_engine(_config['DB'])
+    db.app_db = db.add_engine(_config['APP_DB'])

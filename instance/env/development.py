@@ -10,10 +10,15 @@ MONGO_CONNECT_TIMEOUT_MS = 10000
 # For multiple mysql connections, use object for each config,
 # the db driver will read and parse it as needed
 
-DB = {
+APP_DB = {
     'host': 'localhost',
     'db': 'app',
     'user': 'root',
     'password': '',
     'port': 3306
+}
+
+EMAIL = {
+    'username': 'user@domain.com',
+    'password': 'pass'
 }

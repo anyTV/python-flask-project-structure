@@ -6,10 +6,10 @@ from flask import Blueprint
 
 # Import app-based dependencies
 from app import user
+from util import utils
 
 # Import core libraries
 from lib.decorators import make_response
-
 
 # Define the blueprint: 'user', set its url prefix: app.url/user
 mod_user = Blueprint('user', __name__)
@@ -17,25 +17,19 @@ mod_user = Blueprint('user', __name__)
 
 # Declare all the routes
 
-@mod_user.route('/', methods=['GET'])
+@mod_user.route('/<user_id>', methods=['GET'])
 @make_response
-def get_user(res):
+def get_user(res, user_id):
 
-    params = {
-        'user_id': request.user_id
-    }
-
-    return res.send(user.get_user(params)[0])
+    result = user.get_user(user_id)
+    return res.send(result)
 
 
 @mod_user.route('/', methods=['POST'])
 def add_user(res):
 
-    params = {
-        'user_id': request.user_id,
-        'email': request.form['email']
-    }
+    params = utils.get_data(['user_id', 'email'], request.values)
 
     user.add_user(params)
 
-    return res.send('edit success')
+    return res.send('Successfully added user')
