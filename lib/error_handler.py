@@ -17,6 +17,7 @@ class FailedRequest(Exception):
 
     def to_dict(self):
         rv = {}
+        rv['code'] = self.status_code
         rv['message'] = self.message
         rv['data'] = dict(self.payload or ())
         return rv
@@ -30,19 +31,19 @@ mod_err = Blueprint('mod_err', __name__)
 
 @mod_err.app_errorhandler(404)
 def not_found(error):
-    return make_response(jsonify({'HTTP 500': 'The Monkey Ninja cannot find your request'}), 404)
+    return make_response(jsonify({'error': '[HTTP 404] The Monkey Ninja cannot find your request'}), 404)
 
 
 @mod_err.app_errorhandler(500)
 def not_found(error):
-    return make_response(jsonify({'HTTP 500': 'The Monkey Ninja failed internally'}), 500)
+    return make_response(jsonify({'error': '[HTTP 500] The Monkey Ninja failed internally'}), 500)
 
 
 @mod_err.app_errorhandler(FailedRequest)
 def exception_encountered(error):
-    return make_response(jsonify(error.to_dict()), error.status_code)
+    return make_response(jsonify({'error': error.to_dict()}), error.status_code)
 
 
 @mod_err.app_errorhandler(Exception)
 def exception_encountered(error):
-    return make_response(jsonify({'error': error.message}), 500)
+    return make_response(jsonify({'error': str(error)}), 500)

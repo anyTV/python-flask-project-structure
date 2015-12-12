@@ -7,7 +7,7 @@ DEBUG = True
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # App name
-APP_NAME = "App Name"
+APP_NAME = "Python Flask Boilerplate"
 
 # Threads per core
 THREADS_PER_PAGE = 2
@@ -22,5 +22,20 @@ CSRF_SESSION_KEY = "code"
 # Secret key for signing cookies
 SECRET_KEY = "code"
 
+ALLOWED_HEADERS = ['Access-Token, X-Requested-With, Content-Type, Accept']
+ALLOWED_ORIGINS = '*'
+ALLOWED_METHODS = ['GET', 'HEAD', 'POST', 'OPTIONS', 'PUT', 'PATCH', 'DELETE']
 
-print " * Loading config for " + APP_NAME
+# Environment - dev, stage, prod
+APP_ENV = 'dev'
+
+# Default values
+PAGE_LIMIT = 20
+
+# Error messages
+ERROR = {
+    'no_results': 'No results found',
+    'permission': 'You do not have permission to do this action'
+}
+
+print(" * Loading config for " + APP_NAME)
